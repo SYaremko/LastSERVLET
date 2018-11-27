@@ -27,44 +27,27 @@ public class Login  extends HttpServlet{
         String name = req.getParameter("name");
         String password = MD5.md5(req.getParameter("password"));
 
-        /*if (name.isEmpty() || password.isEmpty()) {
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
-*/
-
-
-       /* if (name == null || name.isEmpty()) {
+        System.out.println("Password Is?= " + password);
+        if (name == null || name.isEmpty()) {
             req.setAttribute("msgg","Please enter username");
-            req.getRequestDispatcher("pages/Person/loginPage.jsp").forward(req,resp);
+            req.getRequestDispatcher("index.jsp").forward(req,resp);
         }
 
         if (password == null || password.isEmpty()) {
             req.setAttribute("msgg","Please enter password");
-            req.getRequestDispatcher("pages/Person/loginPage.jsp").forward(req,resp);
-        }*/
-        /*if (password.equals("2c80fe6cdc35ad8188a1e714452130ed") && name.equals("vv")){
-            req.setAttribute("adm","You are admin");
-            req.getRequestDispatcher("pages/Movie/listMovie.jsp").forward(req,resp);
-        }*/
-        /*else {
-            req.setAttribute("msgg","We don't find you");
-            req.getRequestDispatcher("pages/Person/loginPage.jsp").forward(req,resp);
-        }*/
-
-
-
-
-
-
+            req.getRequestDispatcher("index.jsp").forward(req,resp);
+        }
 
             System.out.println(password);
             try {
                 Person person = daoPerson.getPerson(name, password);
-                PersonSession.addToSession(person.getName(), req);
-                req.setAttribute("name",person);
+                PersonSession.addToSession(String.valueOf(person.getId()), req);
+                req.setAttribute("name",name);
+                System.out.println("your id  " +person.getId());
             } catch (SQLException e) {
                 e.printStackTrace();
             }
 
-            req.getRequestDispatcher("pages/Movie/listMovie.jsp").forward(req, resp);
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
         }
     }

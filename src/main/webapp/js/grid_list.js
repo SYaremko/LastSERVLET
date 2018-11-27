@@ -47,9 +47,9 @@ $(document).ready(function(){
             url: '/deleteMovie',
 
             success: function () {
-
-                $('#siteModal').fadeOut(100);
                 $('#'+removeId.id).remove();
+                $('#siteModal').fadeOut(100);
+
             },
             error: function () {
                 alert("No")

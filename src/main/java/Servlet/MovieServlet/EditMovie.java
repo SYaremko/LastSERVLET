@@ -5,14 +5,17 @@ import Entity.Movie;
 import enumPackage.Type;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import javax.servlet.http.Part;
+import java.io.*;
+import java.nio.file.Paths;
 
 @WebServlet("/edit")
-
+/*@MultipartConfig*/
 public class EditMovie extends HttpServlet{
 
         private DaoMovie daoMovie;
@@ -48,8 +51,21 @@ public class EditMovie extends HttpServlet{
         movie.setMoviename(request.getParameter("moviename"));
         movie.setType(Type.valueOf(request.getParameter("type")));
         movie.setDescription(request.getParameter("description"));
+   /*     Part filePart = request.getPart("image");
+        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+        InputStream fileContent = filePart.getInputStream();
+        byte[] buffer = new byte[fileContent.available()];
+        fileContent.read(buffer);
+        File targetFile = new File("C:\\Users\\Solomiya\\Desktop\\iimm\\" + fileName);
+        System.out.println(targetFile.getAbsolutePath());
+        OutputStream outStream = new FileOutputStream(targetFile);
+        outStream.write(buffer);
+        outStream.close();
+        System.out.println("all ok");
 
-        movie.setImage(request.getParameter("image"));
+        movie.setImage(fileName);
+        System.out.println(fileName);*/
+movie.setImage(request.getParameter("image"));
         movie.setUrl(request.getParameter("url"));
 
         try {

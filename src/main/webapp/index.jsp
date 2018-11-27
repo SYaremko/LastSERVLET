@@ -48,7 +48,7 @@ ${name}
                     <ul class="h_menu">
 
                         <li><a href="/listPerson">List Person</a></li>
-                       <%-- <li><a href="/addMoviePage">add Movie</a></li>--%>
+                        <li><a href="/addMoviePage">add Movie</a></li>
                        <%-- <li><a href="/addPersonPage">add Person</a></li>--%>
                         <li><a href="/listMovie">List movie</a></li>
                            <li><a href="/addPersonPage">Registration</a></li>

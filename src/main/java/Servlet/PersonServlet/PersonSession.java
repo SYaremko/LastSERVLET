@@ -10,6 +10,7 @@ public class PersonSession {
     public static void addToSession(String personId, HttpServletRequest httpServletRequest){
         personSession.put(personId, httpServletRequest.getSession().getId());
         httpServletRequest.getSession().setAttribute("person", personId);
+        System.out.println(personId);
 
     }
     public static void clearSession(String personId){
@@ -17,7 +18,7 @@ public class PersonSession {
     }
 
     public static boolean isSessionValid(String personId, HttpServletRequest httpServletRequest){
-        if (!personId.contains(personId)){
+        if (!personSession.containsKey(personId)){
             return false;
         }return personSession.get(personId).equals(httpServletRequest.getSession().getId());
     }

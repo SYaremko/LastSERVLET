@@ -4,8 +4,6 @@ $(document).ready(function(){
         id: null
     }
 
-
-
     $('.list__cancel').on('click', function(e) {
         e.preventDefault();
         $('#siteModal').fadeIn(100);

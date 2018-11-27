@@ -99,14 +99,15 @@ public class DaoMovie implements IDaoMovie {
     }
     @Override
     public void updateMovie(Movie movie) throws SQLException {
-        Movie exist = getMovieById(movie.getId());
-        exist.setMoviename(movie.getMoviename());
-        exist.setType(movie.getType());
-        exist.setDescription(movie.getDescription());
-        exist.setImage(movie.getImage());
-        exist.setImage(movie.getUrl());
+        Movie movieEdit = getMovieById(movie.getId());
+        movieEdit.setMoviename(movie.getMoviename());
+        movieEdit.setType(movie.getType());
+        movieEdit.setDescription(movie.getDescription());
+        movieEdit.setImage(movie.getImage());
+        System.out.println(movie.getImage() +"  ddddd");
+        movieEdit.setUrl(movie.getUrl());
         deleteMovie(movie.getId());
-        createMovie(exist);
+        createMovie(movieEdit);
         System.out.println("rrrrr");
 
 

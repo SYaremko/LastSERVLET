@@ -1,3 +1,4 @@
+/*
 package Servlet.PersonServlet;
 
 import MD5.MD5;
@@ -41,12 +42,16 @@ public class AdminFilter implements Filter {
             chainObj.doFilter(req, resp);
 
         }
+*/
+/*
  HttpServletRequest httpServletRequest = ((HttpServletRequest)req);
         Object attribute = httpServletRequest.getSession().getAttribute("person");
         if (attribute == null) {
             req.getRequestDispatcher("pages/Person/404.jsp").forward(req, resp);
             return;
         }
+
+*//*
 
 
         
@@ -62,3 +67,4 @@ public class AdminFilter implements Filter {
 
     }
 }
+*/

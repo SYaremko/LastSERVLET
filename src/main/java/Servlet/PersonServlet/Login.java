@@ -25,10 +25,15 @@ public class Login  extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
-        String password = MD5.md5(req.getParameter("password"));
+        String password =req.getParameter("password");
 
         System.out.println("Password Is?= " + password);
-        if (name == null || name.isEmpty()) {
+        if ((name == null || name.isEmpty()) && (password == null || password.isEmpty())){
+            req.setAttribute("msgg","Please enter username and password");
+            req.getRequestDispatcher("index.jsp").forward(req,resp);
+        }
+
+            if (name == null || name.isEmpty()) {
             req.setAttribute("msgg","Please enter username");
             req.getRequestDispatcher("index.jsp").forward(req,resp);
         }
@@ -38,9 +43,22 @@ public class Login  extends HttpServlet{
             req.getRequestDispatcher("index.jsp").forward(req,resp);
         }
 
-            System.out.println(password);
+
+       /* if(password != null && password.equals("b895e9d6bedde8050dd1550e624566b3")) {
+            req.getRequestDispatcher("pages/Movie/addMoviePage.jsp").forward(req,resp);
+
+
+        }*/
+
+
+
+
+
+
+           String pd = MD5.md5(password);
+            System.out.println(pd);
             try {
-                Person person = daoPerson.getPerson(name, password);
+                Person person = daoPerson.getPerson(name, pd);
                 PersonSession.addToSession(String.valueOf(person.getId()), req);
                 req.setAttribute("name",name);
                 System.out.println("your id  " +person.getId());

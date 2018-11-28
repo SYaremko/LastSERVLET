@@ -104,7 +104,7 @@ public class DaoMovie implements IDaoMovie {
         movieEdit.setType(movie.getType());
         movieEdit.setDescription(movie.getDescription());
         movieEdit.setImage(movie.getImage());
-        System.out.println(movie.getImage() +"  ddddd");
+       /* System.out.println(movie.getImage() +"  ddddd");*/
         movieEdit.setUrl(movie.getUrl());
         deleteMovie(movie.getId());
         createMovie(movieEdit);

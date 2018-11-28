@@ -8,12 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/*
 @WebServlet("/addMoviePage")
 public class AddMoviePage extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("pages/Movie/addMoviePage.jsp").forward(req,resp);
+        */
+/*req.getRequestDispatcher("pages/Movie/addMoviePage.jsp").forward(req,resp);*//*
+
     }
 }
+*/
 
 

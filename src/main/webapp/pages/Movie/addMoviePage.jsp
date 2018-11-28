@@ -1,6 +1,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%--
 <html>
 <head>
     <title>Title</title>
@@ -20,9 +21,8 @@
         </div>
         <div class="header_menu">
           <ul class="h_menu">
-            <li><a href="/listPerson">List Person</a></li>
-
-            <li><a href="/listMovie">List movie</a></li>
+            <li><a href="/listPerson">Users</a></li>
+            <li><a href="/listMovie">Movies</a></li>
               <li><a href="/LogoutServlet">Logout</a></li>
 
           </ul>
@@ -42,7 +42,8 @@
                 <div class="slick-arrow slick-next">
                     <img src="img/arr1.png" alt="arrow">
                 </div>
-            </div>
+            </div>--%>
+<jsp:include page="include/header.jsp"/>
 <form action="/addMovie" method="post" enctype="multipart/form-data" class="some__form">
     <div class="form__line">
         <label for="movie_name">
@@ -81,8 +82,8 @@
 
 </form>
   </div>
-</div>  <script src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
-<script src="js/grid_list.js"></script>
+</div>
+<jsp:include page="include/jsFile.jsp"/>
+
 </body>
 </html>

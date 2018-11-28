@@ -25,9 +25,31 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
         String password = req.getParameter("password");
+
+        if (!(name.length() <= 10)) {
+            req.setAttribute("message", "Your login has to contain not more 10 symbols");
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
+        }
+        if (!((password.length()) <= 15)) {
+            req.setAttribute("message", "Your password has to contain not more 15 symbols");
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
+        }
+        System.out.println("Password Is?= " + password);
+        if ((name == null || name.isEmpty()) && (password == null || password.isEmpty())) {
+            req.setAttribute("message", "Please enter login and password");
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
+        }
+        if (name == null || name.isEmpty()) {
+            req.setAttribute("message", "Please enter login");
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
+        }
+        if (password == null || password.isEmpty()) {
+            req.setAttribute("message", "Please enter password");
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
+        }
         try {
             Person person = daoPerson.getPerson(name, MD5.md5(password));
-            if (person==null){
+            if (person == null) {
                 String error = "Your name or password is invalid";
                 req.setAttribute("message", error);
                 req.getRequestDispatcher("index.jsp").forward(req, resp);
@@ -35,27 +57,7 @@ public class Login extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        if (!(name.length() < 10)){
-            req.setAttribute("message", "You can not use name more the 10 elements");
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
-        }
-        if (!((password.length()) < 15)){
-            req.setAttribute("message", "You can not use password more the 15 elements");
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
-        }
-        System.out.println("Password Is?= " + password);
-        if ((name == null || name.isEmpty()) && (password == null || password.isEmpty())) {
-            req.setAttribute("message", "Please enter username and password");
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
-        }
-        if (name == null || name.isEmpty()) {
-            req.setAttribute("message", "Please enter username");
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
-        }
-        if (password == null || password.isEmpty()) {
-            req.setAttribute("message", "Please enter password");
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
-        }
+
         String pd = MD5.md5(password);
         System.out.println(pd);
         try {

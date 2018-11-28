@@ -6,42 +6,27 @@
 <head>
     <title>Title</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
-
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-
 </head>
-
 <body>
-
 <div class="block-body">
-
     <div class="container">
         <header class="header">
             <nav class="header_nav">
                 <div class="logo">
                     <a href="/"><img class="movie" src="img/logo.png"></a>
-
                 </div>
-
                 <div class="header_menu">
-
                     <ul class="h_menu">
-
                             <li><a style="color: darkblue; margin-right: 300px"><b>${name}</b> </a> </li>
-
-
-                        <li><a href="/listPerson">List Person</a></li>
+                        <li><a href="/listPerson">Users</a></li>
                         <li><a href="/addMoviePage">add Movie</a></li>
-                        <li><a href="/listMovie">List movie</a></li>
+                        <li><a href="/listMovie">Movies</a></li>
                            <li><a href="/addPersonPage">Registration</a></li>
-
                     </ul>
                 </div>
             </nav>
-
         </header>
-
-
         <div class="site__info-wrapper">
             <div id="particles" class="particles__wrap">
                 <form action="/login" method="post" class="enter__form">
@@ -56,11 +41,8 @@
                         <span>Password</span>
                         <input type="password" name="password" id="user__password" class="enter__form-input"><br>
                     </label>
-
                     <input type="submit" class="enter__form-submit">
-
                 </form>
-
         </div>
     </div>
 </div>

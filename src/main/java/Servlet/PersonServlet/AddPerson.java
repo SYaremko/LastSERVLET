@@ -33,12 +33,12 @@ public class AddPerson extends HttpServlet {
         Part filePart = request.getPart("img");
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         String sex = String.valueOf(request.getParameter("sex"));
-        if (!(name.length() < 10)){
-            request.setAttribute("message", "You can not use name more the 10 elements");
+        if (!(name.length() <= 10)){
+            request.setAttribute("message", "Your login has to contain not more 10 symbols");
             request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request, response);
         }
-        if (!((password.length()) < 15)){
-            request.setAttribute("message", "You can not use password more the 15 elements");
+        if (!((password.length()) <= 15)){
+            request.setAttribute("message", "Your password has to contain not more 15 symbols");
             request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request, response);
         }
         if ((name.contains(" ")) || password.contains(" ") || email.contains(" ")) {

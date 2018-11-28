@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
@@ -10,7 +11,7 @@
 </head>
 
 <body>
-${adm}
+
     <div class="block-body">
 
             <div class="container">
@@ -21,8 +22,8 @@ ${adm}
                         </div>
                         <div class="header_menu">
                             <ul class="h_menu">
-                                <li><a href="/listPerson">List Person</a></li>
-                                <li><a href="/listMovie">List movie</a></li>
+                                <li><a href="/listPerson">Users</a></li>
+                                <li><a href="/listMovie">Movies</a></li>
                                 <li><a href="/LogoutServlet">Logout</a></li>
 
                             </ul>
@@ -44,8 +45,9 @@ ${adm}
                     </div>
                 </div>
             </div>
-
-
+--%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<jsp:include page="include/header.jsp"/>
         <div class="block-content">
             <div id="block-sorting">
                 <ul id="option-list">
@@ -102,10 +104,10 @@ ${adm}
             </div>
         </div>
     </div>
-
-    <script src="js/jquery.min.js"></script>
+<jsp:include page="include/jsFile.jsp"/>
+   <%-- <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/slick.min.js"></script>
-    <script src="js/grid_list.js"></script>
+    <script src="js/grid_list.js"></script>--%>
 </body>
 
 </html>

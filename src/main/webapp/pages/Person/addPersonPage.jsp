@@ -27,8 +27,8 @@
 <form action="/addPerson" method="post" enctype="multipart/form-data" class="form__wrapper">
     <div class="form__text-wrapper">
         <label for="user_name" class="form__label">
-            <input type="text" id="user_name" name="name" class="form__inp-text" value="" <%--required="required"--%>>
-            <span class="inp__title">Your Name</span>
+            <input type="text" id="user_name" name="name" class="form__inp-text" value="" required="required">
+            <span class="inp__title">Your Login</span>
             <span class="form-error"></span>
         </label>
         <label for="user_email" class="form__label">
@@ -70,4 +70,5 @@
     </div>
 </div>
 </body>
+
 </html>

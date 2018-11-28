@@ -33,11 +33,11 @@ public class AddPerson extends HttpServlet {
         Part filePart = request.getPart("img");
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         String sex = String.valueOf(request.getParameter("sex"));
-        if (!(name.length() <= 10)){
+        if (!(name.length() <= 10)) {
             request.setAttribute("message", "Your login has to contain not more 10 symbols");
             request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request, response);
         }
-        if (!((password.length()) <= 15)){
+        if (!((password.length()) <= 15)) {
             request.setAttribute("message", "Your password has to contain not more 15 symbols");
             request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request, response);
         }
@@ -46,7 +46,7 @@ public class AddPerson extends HttpServlet {
             request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request, response);
         }
         if ((name == null || name.isEmpty())
-                || (password == null || password.isEmpty()  )
+                || (password == null || password.isEmpty())
                 || (email == null || email.isEmpty())
                 || (fileName == null || fileName.isEmpty())
                 || (sex == null || sex.isEmpty())
@@ -60,8 +60,6 @@ public class AddPerson extends HttpServlet {
         person.setEmail(request.getParameter("email"));
         person.setPassword(MD5.md5(request.getParameter("password")));
         person.setSex(Sex.valueOf(request.getParameter("sex")));
-        /*Part filePart = request.getPart("img");
-        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();*/
         InputStream fileContent = filePart.getInputStream();
         byte[] buffer = new byte[fileContent.available()];
         fileContent.read(buffer);

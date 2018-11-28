@@ -31,8 +31,7 @@ public class Navigation extends HttpServlet {
         List<Movie> movieList = new ArrayList<Movie>();
         try {
             movieList.addAll(daoMovie.navigation(type));
-            /*System.out.println(daoMovie.navigation(type));*/
-        } catch (SQLException e) {
+                   } catch (SQLException e) {
             e.printStackTrace();
         }
 

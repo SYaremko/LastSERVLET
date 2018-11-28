@@ -13,10 +13,6 @@ public class PersonSession {
         System.out.println(personId);
     }
 
-    public static void clearSession(String personId) {
-        personSession.remove(personId);
-    }
-
     public static boolean isSessionValid(String personId, HttpServletRequest httpServletRequest) {
         if (!personSession.containsKey(personId)) {
             return false;

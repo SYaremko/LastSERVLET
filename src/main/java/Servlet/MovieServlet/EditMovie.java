@@ -44,7 +44,7 @@ public class EditMovie extends HttpServlet {
             request.setAttribute("movie", movie);
             request.getRequestDispatcher("pages/Movie/Editmovie.jsp").forward(request, response);
         }
-        System.out.println("fffff");
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -64,11 +64,8 @@ public class EditMovie extends HttpServlet {
         OutputStream outStream = new FileOutputStream(targetFile);
         outStream.write(buffer);
         outStream.close();
-        System.out.println("all ok");
-
         movie.setImage(fileName);
         System.out.println(fileName);
-       /* movie.setImage(request.getParameter("image"));*/
         movie.setUrl(request.getParameter("url"));
         try {
             if (movie.getId() == -1) {

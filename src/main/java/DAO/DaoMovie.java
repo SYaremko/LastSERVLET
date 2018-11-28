@@ -56,7 +56,6 @@ public class DaoMovie implements IDaoMovie {
         PreparedStatement pr = connection.prepareStatement(sql);
         pr.setInt(1, id);
         pr.executeUpdate();
-        System.out.println("dao all ok");
     }
 
     @Override
@@ -74,7 +73,6 @@ public class DaoMovie implements IDaoMovie {
             movie.setImage(resultSet.getString("image"));
             movie.setUrl(resultSet.getString("url"));
             list.add(movie);
-            System.out.println("dao good");
         }
         return list;
     }
@@ -107,6 +105,5 @@ public class DaoMovie implements IDaoMovie {
         movieEdit.setUrl(movie.getUrl());
         deleteMovie(movie.getId());
         createMovie(movieEdit);
-        System.out.println("rrrrr");
     }
 }

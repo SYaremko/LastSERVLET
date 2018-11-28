@@ -28,8 +28,7 @@ public class ListMovie extends HttpServlet {
         List<Movie> movieList = new ArrayList<Movie>();
         try {
             movieList.addAll(daoMovie.getAllMovie());
-                /*System.out.println( movieList.addAll(daoMovie.getAllMovie()));*/
-        } catch (Exception e) {
+                      } catch (Exception e) {
             e.printStackTrace();
         }
         req.setAttribute("movieList", movieList);

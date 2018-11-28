@@ -30,7 +30,6 @@ public class AddPerson extends HttpServlet {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
-
         Part filePart = request.getPart("img");
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         String sex = String.valueOf(request.getParameter("sex"));
@@ -70,34 +69,5 @@ public class AddPerson extends HttpServlet {
         }
         response.sendRedirect("/");
     }
-  /*movie.setImage(fileName);
-        try {
-            daoMovie.createMovie(movie);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-
-
-
-
-        /*Part filePart = request.getPart("image");
-        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-        InputStream fileContent = filePart.getInputStream();
-        byte[] buffer = new byte[fileContent.available()];
-        fileContent.read(buffer);
-        File targetFile = new File("C:\\Users\\Solomiya\\Desktop\\iimm\\" + fileName);
-        System.out.println(targetFile.getAbsolutePath());
-        OutputStream outStream = new FileOutputStream(targetFile);
-        outStream.write(buffer);
-        outStream.close();
-        System.out.println("all ok");
-*/
-        /*movie.setImage(fileName);
-        try {
-            daoMovie.createMovie(movie);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-
 }
 

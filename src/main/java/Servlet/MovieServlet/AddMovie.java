@@ -24,35 +24,6 @@ public class AddMovie extends HttpServlet {
         super();
         daoMovie = new DaoMovie();
     }
-/*
-  @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Movie movie = new Movie();
-        String moveName = req.getParameter("moviename");
-        if (moveName.isEmpty()){
-            movie.setMoviename("ok");
-
-        } else {
-            movie.setMoviename(moveName);
-        }
-        movie.setMoviename(req.getParameter("moviename"));
-        movie.setType(Type.valueOf(req.getParameter("type")));
-        movie.setDescription(req.getParameter("description"));
-
-        movie.setImage(req.getParameter("image"));
-        movie.setUrl(req.getParameter("url"));
-
-        try {
-            daoMovie.createMovie(movie);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        resp.sendRedirect("/");
-
-
-    }
-*/
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Movie movie = new Movie();
@@ -65,8 +36,6 @@ public class AddMovie extends HttpServlet {
         movie.setMoviename(request.getParameter("moviename"));
         movie.setType(Type.valueOf(request.getParameter("type")));
         movie.setDescription(request.getParameter("description"));
-
-        /*movie.setImage(request.getParameter("image"));*/
         movie.setUrl(request.getParameter("url"));
         Part filePart = request.getPart("image");
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
@@ -78,7 +47,6 @@ public class AddMovie extends HttpServlet {
         OutputStream outStream = new FileOutputStream(targetFile);
         outStream.write(buffer);
         outStream.close();
-        System.out.println("all ok");
         movie.setImage(fileName);
         try {
             daoMovie.createMovie(movie);

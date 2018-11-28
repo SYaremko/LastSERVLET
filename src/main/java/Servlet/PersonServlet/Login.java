@@ -38,15 +38,6 @@ public class Login extends HttpServlet {
             req.setAttribute("message", "Please enter password");
             req.getRequestDispatcher("index.jsp").forward(req, resp);
         }
-
-
-       /* if(password != null && password.equals("b895e9d6bedde8050dd1550e624566b3")) {
-            req.getRequestDispatcher("pages/Movie/addMoviePage.jsp").forward(req,resp);
-
-
-        }*/
-
-
         String pd = MD5.md5(password);
         System.out.println(pd);
         try {

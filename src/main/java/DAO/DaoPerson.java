@@ -48,10 +48,7 @@ public class DaoPerson implements IDaoPerson {
         prr.setString(4, String.valueOf(persons.getSex()));
         prr.setString(5, String.valueOf(persons.getRole()));
         prr.setString(6, persons.getImg());
-        System.out.println("1111");
         prr.executeUpdate();
-        System.out.println("122222");
-
     }
 
     @Override
@@ -89,6 +86,5 @@ public class DaoPerson implements IDaoPerson {
         PreparedStatement pr = connection.prepareStatement(sql);
         pr.setInt(1, id);
         pr.executeUpdate();
-        System.out.println("dao all ok");
     }
 }

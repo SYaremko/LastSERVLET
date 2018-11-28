@@ -5,11 +5,7 @@
 <head>
     <title>Title</title>
   <link href="css/style.css" rel="stylesheet" type="text/css">
-  <link href="css/style.css" rel="stylesheet" type="text/css">
-  <%--<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
-        type="text/css"/>--%>
 
-  <%-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>--%>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
 
 </head>
@@ -25,15 +21,14 @@
         <div class="header_menu">
           <ul class="h_menu">
             <li><a href="/listPerson">List Person</a></li>
-           <%-- <li><a href="/addMoviePage">add Movie</a></li>--%>
-            <%--<li><a href="/addPersonPage">add Person</a></li>--%>
+
             <li><a href="/listMovie">List movie</a></li>
               <li><a href="/LogoutServlet">Logout</a></li>
-           <%-- <li><a href="/loginPage">Login Page</a></li>--%>
+
           </ul>
         </div>
       </nav>
-      <%-- <div class="header_back"></div>--%>
+
     </header>
       <div class="hero__wrapper">
                 <div class="slick__wrapper">

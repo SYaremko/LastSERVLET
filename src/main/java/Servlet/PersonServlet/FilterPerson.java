@@ -38,13 +38,6 @@ public class FilterPerson implements Filter {
             request.getRequestDispatcher("pages/Movie/addMoviePage.jsp").forward(request, response);
             return;
         }
-        /*if((p = (Person) session.getAttribute("person")) != null) {
-            if (p.getRole() == Role.ROLE_ADMIN) {
-            request.getRequestDispatcher("pages/Movie/addMoviePage.jsp").forward(request, response);
-
-
-        }*/
-
         chain.doFilter(request, response);
     }
 

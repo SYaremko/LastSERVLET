@@ -4,10 +4,7 @@
 <head>
     <title>Title</title>
     <link href="css/style.css" rel="stylesheet" type="text/css">
-    <%--<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet"
-          type="text/css"/>--%>
 
-   <%-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>--%>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
 
 </head>
@@ -25,15 +22,13 @@ ${adm}
                         <div class="header_menu">
                             <ul class="h_menu">
                                 <li><a href="/listPerson">List Person</a></li>
-                                <%--<li><a href="/addMoviePage">add Movie</a></li>--%>
-                               <%-- <li><a href="/addPersonPage">add Person</a></li>--%>
                                 <li><a href="/listMovie">List movie</a></li>
                                 <li><a href="/LogoutServlet">Logout</a></li>
-                               <%-- <li><a href="/loginPage">Login Page</a></li>--%>
+
                             </ul>
                         </div>
                     </nav>
-                   <%-- <div class="header_back"></div>--%>
+
                 </header>
                 <div class="hero__wrapper">
                     <div class="slick__wrapper">
@@ -68,7 +63,7 @@ ${adm}
                     <label for="navigation__cartoon" class="navigation__input-wr navigation__input-cartoon">
                         <span>CARTOON</span>
                     </label>
-                   <%-- <input type="submit" value="Find" id="navigation__submit">--%>
+
                 </form>
             </div>
             <ul id="block-tovar-grid" class="list__wrapper">
@@ -84,7 +79,6 @@ ${adm}
                                     ${movieList.description}
                             </p>
                             <a href="/edit?MovieId=${movieList.id}" class="list__crt list__edit"><img src="img/multi-edit.png" alt=" "></a>
-                           <%-- ItemEdit?itemId=${item.id}--%>
 
                         </div>
                     </li>
@@ -92,7 +86,6 @@ ${adm}
             </ul>
 
         </div>
-        <%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>--%>
 
     </div>
     <div class="modal__wrapper" id="siteModal">

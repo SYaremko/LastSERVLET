@@ -26,7 +26,7 @@ public class Login extends HttpServlet {
         String name = req.getParameter("name");
         String password = req.getParameter("password");
         try {
-            Person person = daoPerson.getPerson(name, password);
+            Person person = daoPerson.getPerson(name, MD5.md5(password));
             if (person==null){
                 String error = "Your name or password is invalid";
                 req.setAttribute("message", error);

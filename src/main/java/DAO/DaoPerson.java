@@ -87,4 +87,17 @@ public class DaoPerson implements IDaoPerson {
         pr.setInt(1, id);
         pr.executeUpdate();
     }
+
+    /*@Override
+    public Person findPerson(String name, String password) {
+        String sq = "select name, password from user where name=? and password=? ";
+        PreparedStatement pr = connection.prepareStatement(sq);
+        pr.setString(1, name);
+        pr
+        ResultSet resultSet = pr.executeQuery();
+        if (resultSet.next()) {
+            return true;
+        }
+        return null;
+    }*/
 }

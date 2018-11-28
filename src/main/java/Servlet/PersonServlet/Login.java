@@ -25,6 +25,24 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
         String password = req.getParameter("password");
+        try {
+            Person person = daoPerson.getPerson(name, password);
+            if (person==null){
+                String error = "Your name or password is invalid";
+                req.setAttribute("message", error);
+                req.getRequestDispatcher("index.jsp").forward(req, resp);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (!(name.length() < 10)){
+            req.setAttribute("message", "You can not use name more the 10 elements");
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
+        }
+        if (!((password.length()) < 15)){
+            req.setAttribute("message", "You can not use password more the 15 elements");
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
+        }
         System.out.println("Password Is?= " + password);
         if ((name == null || name.isEmpty()) && (password == null || password.isEmpty())) {
             req.setAttribute("message", "Please enter username and password");

@@ -17,4 +17,6 @@ public interface IDaoPerson {
     boolean isPersonExit(String name) throws SQLException;
 
     void deletePerson(int id) throws SQLException;
+
+   /* Person findPerson(String name, String password);*/
 }

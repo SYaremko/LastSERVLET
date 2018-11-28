@@ -33,12 +33,13 @@ public class AddPerson extends HttpServlet {
         Part filePart = request.getPart("img");
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         String sex = String.valueOf(request.getParameter("sex"));
+
         if ((name.contains(" ")) || password.contains(" ") || email.contains(" ")) {
             request.setAttribute("message", "You can not use a space");
             request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request, response);
         }
-        if ((password == null || password.isEmpty())
-                || (password == null || password.isEmpty())
+        if ((name == null || name.isEmpty())
+                || (password == null || password.isEmpty()  )
                 || (email == null || email.isEmpty())
                 || (fileName == null || fileName.isEmpty())
                 || (sex == null || sex.isEmpty())
@@ -46,6 +47,7 @@ public class AddPerson extends HttpServlet {
             request.setAttribute("message", "Sorry, but all gaps have to be field !");
             request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request, response);
         }
+
         Person person = new Person();
         person.setName(request.getParameter("name"));
         person.setEmail(request.getParameter("email"));

@@ -32,7 +32,7 @@
             <span class="form-error"></span>
         </label>
         <label for="user_email" class="form__label">
-            <input type="text" id="user_email" name="email" class="form__inp-text" value="" <%--required="required"--%>>
+            <input type="email" id="user_email" name="email" class="form__inp-text" value="" <%--required="required"--%>>
             <span class="inp__title">Your Email</span>
             <span class="form-error"></span>
         </label>

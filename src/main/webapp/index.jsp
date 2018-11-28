@@ -54,7 +54,7 @@
                     </label>
                     <label for="user__password" class="enter__form-label">
                         <span>Password</span>
-                        <input type="text" name="password" id="user__password" class="enter__form-input"><br>
+                        <input type="password" name="password" id="user__password" class="enter__form-input"><br>
                     </label>
 
                     <input type="submit" class="enter__form-submit">

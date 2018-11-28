@@ -29,17 +29,17 @@ public class Login  extends HttpServlet{
 
         System.out.println("Password Is?= " + password);
         if ((name == null || name.isEmpty()) && (password == null || password.isEmpty())){
-            req.setAttribute("msgg","Please enter username and password");
+            req.setAttribute("message","Please enter username and password");
             req.getRequestDispatcher("index.jsp").forward(req,resp);
         }
 
             if (name == null || name.isEmpty()) {
-            req.setAttribute("msgg","Please enter username");
+            req.setAttribute("message","Please enter username");
             req.getRequestDispatcher("index.jsp").forward(req,resp);
         }
 
         if (password == null || password.isEmpty()) {
-            req.setAttribute("msgg","Please enter password");
+            req.setAttribute("message","Please enter password");
             req.getRequestDispatcher("index.jsp").forward(req,resp);
         }
 

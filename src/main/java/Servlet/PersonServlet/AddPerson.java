@@ -26,13 +26,40 @@ public class AddPerson extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, FileNotFoundException {
+        String name = request.getParameter("name");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
+
+        Part filePart = request.getPart("img");
+        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+        String sex = String.valueOf(request.getParameter("sex"));
+
+        System.out.println(sex);
+
+
+        System.out.println(fileName);
+        if (( name.contains(" ")) || password.contains(" ") || email.contains(" ")){
+            request.setAttribute("message","You can not use a space");
+            request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request,response);
+        }
+
+        if ((password == null || password.isEmpty())
+                ||(password == null || password.isEmpty())
+                || (email == null || email.isEmpty())
+                || ( fileName==null ||fileName.isEmpty())
+                ||(sex ==null || sex.isEmpty() )
+                 ){
+            request.setAttribute("message","Sorry, but all gaps have to be field !");
+            request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request,response);
+        }
+
         Person person = new Person();
         person.setName(request.getParameter("name"));
         person.setEmail(request.getParameter("email"));
         person.setPassword(MD5.md5(request.getParameter("password")));
         person.setSex(Sex.valueOf(request.getParameter("sex")));
-        Part filePart = request.getPart("img");
-        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+        /*Part filePart = request.getPart("img");
+        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();*/
         InputStream fileContent = filePart.getInputStream();
         byte[] buffer = new byte[fileContent.available()];
         fileContent.read(buffer);

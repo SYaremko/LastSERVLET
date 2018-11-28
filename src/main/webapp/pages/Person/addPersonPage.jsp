@@ -55,24 +55,27 @@
     <div class="form__radio">
 
         <label for="male" class="radio__input">
-            <input type="radio" name="sex" id="male" value="MALE">
+            <input type="radio" name="sex" id="male" value="MALE" required="required">
             <span>MALE</span>
         </label>
         <label for="female" class="radio__input">
-            <input type="radio" name="sex" id="female" value="FEMALE">
+            <input type="radio" name="sex" id="female" value="FEMALE" required="required">
             <span>FEMALE</span>
         </label>
     </div>
    <%-- <input type="hidden" value="ROLE_USER">--%>
     <div class="form__file-wrapper">
         <label for="form__file" class="form__file">
-            <input type="file" name="img" id="form__file" class="form__file-inp">
+            <input type="file" name="img" id="form__file" class="form__file-inp" >
             <span>Завантажити фото</span>
         </label>
     </div>
     <div class="form__submit">
         <input type="submit" value="Save">
     </div>
+    <p class="enter__form-error">
+        ${message}
+    </p>
 </form>
     </div>
 </div>

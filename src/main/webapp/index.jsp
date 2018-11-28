@@ -81,7 +81,7 @@ ${name}
             <div id="particles" class="particles__wrap">
                 <form action="/login" method="post" class="enter__form">
                     <p class="enter__form-error">
-                        ${msgg}
+                        ${message}
                     </p>
                     <label for="user_name" class="enter__form-label">
                         <span>Login</span>

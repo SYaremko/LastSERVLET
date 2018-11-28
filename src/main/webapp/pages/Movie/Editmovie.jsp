@@ -54,7 +54,7 @@
                 <img src="img/arr1.png" alt="arrow">
             </div>
         </div>
-        <form action="/edit" method="post" <%--enctype="multipart/form-data"--%> class="some__form">
+        <form action="/edit" method="post" enctype="multipart/form-data" class="some__form">
             <div class="form__line">
                 <span class="input-span">Id</span>
                 <input type="text" name="id" value="${movie.id}"/>

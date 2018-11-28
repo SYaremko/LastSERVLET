@@ -35,7 +35,7 @@
 </head>
 
 <body>
-${name}
+
 <div class="block-body">
 
     <div class="container">
@@ -43,9 +43,15 @@ ${name}
             <nav class="header_nav">
                 <div class="logo">
                     <a href="/"><img class="movie" src="img/logo.png"></a>
+
                 </div>
+
                 <div class="header_menu">
+
                     <ul class="h_menu">
+
+                            <li><a style="color: darkblue; margin-right: 300px"><b>${name}</b> </a> </li>
+
 
                         <li><a href="/listPerson">List Person</a></li>
                         <li><a href="/addMoviePage">add Movie</a></li>

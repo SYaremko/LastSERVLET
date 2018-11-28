@@ -15,7 +15,7 @@ import java.io.*;
 import java.nio.file.Paths;
 
 @WebServlet("/edit")
-/*@MultipartConfig*/
+@MultipartConfig
 public class EditMovie extends HttpServlet {
 
     private DaoMovie daoMovie;
@@ -54,7 +54,7 @@ public class EditMovie extends HttpServlet {
         movie.setMoviename(request.getParameter("moviename"));
         movie.setType(Type.valueOf(request.getParameter("type")));
         movie.setDescription(request.getParameter("description"));
-   /*     Part filePart = request.getPart("image");
+        Part filePart = request.getPart("image");
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         InputStream fileContent = filePart.getInputStream();
         byte[] buffer = new byte[fileContent.available()];
@@ -67,8 +67,8 @@ public class EditMovie extends HttpServlet {
         System.out.println("all ok");
 
         movie.setImage(fileName);
-        System.out.println(fileName);*/
-        movie.setImage(request.getParameter("image"));
+        System.out.println(fileName);
+       /* movie.setImage(request.getParameter("image"));*/
         movie.setUrl(request.getParameter("url"));
         try {
             if (movie.getId() == -1) {

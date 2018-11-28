@@ -17,8 +17,9 @@ import java.sql.SQLException;
 
 @WebServlet("/addMovie")
 @MultipartConfig
-public class AddMovie extends HttpServlet{
+public class AddMovie extends HttpServlet {
     private DaoMovie daoMovie;
+
     public AddMovie() throws Exception {
         super();
         daoMovie = new DaoMovie();
@@ -56,9 +57,8 @@ public class AddMovie extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Movie movie = new Movie();
         String moveName = request.getParameter("moviename");
-        if (moveName.isEmpty()){
+        if (moveName.isEmpty()) {
             movie.setMoviename("ok");
-
         } else {
             movie.setMoviename(moveName);
         }
@@ -79,14 +79,14 @@ public class AddMovie extends HttpServlet{
         outStream.write(buffer);
         outStream.close();
         System.out.println("all ok");
-
         movie.setImage(fileName);
         try {
             daoMovie.createMovie(movie);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        response.sendRedirect("/addMoviePage");}
+        response.sendRedirect("/addMoviePage");
+    }
 }
 
 

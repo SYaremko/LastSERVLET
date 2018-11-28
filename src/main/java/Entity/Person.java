@@ -6,11 +6,11 @@ import enumPackage.Sex;
 
 public class Person {
     private int id;
-    private  String name;
+    private String name;
     private String email;
     private String password;
     private Sex sex;
-    private Role role=Role.ROLE_USER;
+    private Role role = Role.ROLE_USER;
     private String img;
 
     public int getId() {

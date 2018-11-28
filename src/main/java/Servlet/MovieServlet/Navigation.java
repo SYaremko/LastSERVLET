@@ -15,22 +15,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/navigation")
-public class Navigation extends HttpServlet{
+public class Navigation extends HttpServlet {
     private DaoMovie daoMovie;
+
     public Navigation() throws Exception {
         super();
         daoMovie = new DaoMovie();
     }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Movie movie = new Movie();
-
-        System.out.println(11);
-        Type type =movie.setType(Type.valueOf(req.getParameter("type")));
+        Type type = movie.setType(Type.valueOf(req.getParameter("type")));
         System.out.println(type);
         List<Movie> movieList = new ArrayList<Movie>();
         try {
-           movieList.addAll(daoMovie.navigation(type));
+            movieList.addAll(daoMovie.navigation(type));
             /*System.out.println(daoMovie.navigation(type));*/
         } catch (SQLException e) {
             e.printStackTrace();
@@ -38,6 +38,6 @@ public class Navigation extends HttpServlet{
 
         System.out.println("serv good");
         req.setAttribute("movieList", movieList);
-        req.getRequestDispatcher("pages/Movie/listMovie.jsp").forward(req,resp);
+        req.getRequestDispatcher("pages/Movie/listMovie.jsp").forward(req, resp);
     }
 }

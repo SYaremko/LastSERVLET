@@ -12,7 +12,9 @@ import java.sql.SQLException;
 
 @WebServlet("/deleteMovie")
 public class DeleteMovie extends HttpServlet {
+
     private DaoMovie daoMovie;
+
     public DeleteMovie() throws Exception {
         super();
         daoMovie = new DaoMovie();
@@ -20,9 +22,7 @@ public class DeleteMovie extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         String movieid = req.getParameter("reqValue");
-
         System.out.println(movieid);
         try {
             daoMovie.deleteMovie(Integer.parseInt(movieid));

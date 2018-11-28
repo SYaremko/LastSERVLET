@@ -20,6 +20,7 @@ import java.sql.SQLException;
 @MultipartConfig
 public class AddPerson extends HttpServlet {
     private DaoPerson daoPerson;
+
     public AddPerson() throws Exception {
         super();
         daoPerson = new DaoPerson();
@@ -33,26 +34,19 @@ public class AddPerson extends HttpServlet {
         Part filePart = request.getPart("img");
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         String sex = String.valueOf(request.getParameter("sex"));
-
-        System.out.println(sex);
-
-
-        System.out.println(fileName);
-        if (( name.contains(" ")) || password.contains(" ") || email.contains(" ")){
-            request.setAttribute("message","You can not use a space");
-            request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request,response);
+        if ((name.contains(" ")) || password.contains(" ") || email.contains(" ")) {
+            request.setAttribute("message", "You can not use a space");
+            request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request, response);
         }
-
         if ((password == null || password.isEmpty())
-                ||(password == null || password.isEmpty())
+                || (password == null || password.isEmpty())
                 || (email == null || email.isEmpty())
-                || ( fileName==null ||fileName.isEmpty())
-                ||(sex ==null || sex.isEmpty() )
-                 ){
-            request.setAttribute("message","Sorry, but all gaps have to be field !");
-            request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request,response);
+                || (fileName == null || fileName.isEmpty())
+                || (sex == null || sex.isEmpty())
+                ) {
+            request.setAttribute("message", "Sorry, but all gaps have to be field !");
+            request.getRequestDispatcher("pages/Person/addPersonPage.jsp").forward(request, response);
         }
-
         Person person = new Person();
         person.setName(request.getParameter("name"));
         person.setEmail(request.getParameter("email"));
@@ -68,17 +62,14 @@ public class AddPerson extends HttpServlet {
         OutputStream outStream = new FileOutputStream(targetFile);
         outStream.write(buffer);
         outStream.close();
-        System.out.println("all ok");
-
         person.setImg(fileName);
-
         try {
             daoPerson.createPerson(person);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("all ok");
-        response.sendRedirect("/");}
+        response.sendRedirect("/");
+    }
   /*movie.setImage(fileName);
         try {
             daoMovie.createMovie(movie);

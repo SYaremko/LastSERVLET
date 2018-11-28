@@ -1,4 +1,5 @@
 package Servlet.PersonServlet;
+
 import Entity.Person;
 import enumPackage.Role;
 
@@ -10,7 +11,7 @@ import java.io.IOException;
 
 
 @WebFilter("/addMoviePage")
-public class FilterPerson implements Filter{
+public class FilterPerson implements Filter {
     public FilterPerson() {
     }
 
@@ -21,27 +22,22 @@ public class FilterPerson implements Filter{
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-        HttpServletRequest httpServletRequest = ((HttpServletRequest)request);
+        HttpServletRequest httpServletRequest = ((HttpServletRequest) request);
         Object attribute = httpServletRequest.getSession().getAttribute("person");
         Person p = null;
-        /*System.out.println(p.getRole());*/
-
         if (attribute == null) {
             request.getRequestDispatcher("pages/Person/404.jsp").forward(request, response);
             return;
         }
-        String personid = (String)attribute;
-        if (!PersonSession.isSessionValid(personid, httpServletRequest)  ) {
+        String personid = (String) attribute;
+        if (!PersonSession.isSessionValid(personid, httpServletRequest)) {
             request.getRequestDispatcher("pages/Person/404.jsp").forward(request, response);
             return;
         }
-        if (PersonSession.isSessionValid(personid, httpServletRequest) ){
+        if (PersonSession.isSessionValid(personid, httpServletRequest)) {
             request.getRequestDispatcher("pages/Movie/addMoviePage.jsp").forward(request, response);
-        return;}
-
-
-
-
+            return;
+        }
         /*if((p = (Person) session.getAttribute("person")) != null) {
             if (p.getRole() == Role.ROLE_ADMIN) {
             request.getRequestDispatcher("pages/Movie/addMoviePage.jsp").forward(request, response);

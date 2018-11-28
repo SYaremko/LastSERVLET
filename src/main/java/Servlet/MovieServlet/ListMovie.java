@@ -16,26 +16,23 @@ import java.util.List;
 @WebServlet("/listMovie")
 public class ListMovie extends HttpServlet {
 
+    private DaoMovie daoMovie;
 
-        private DaoMovie daoMovie;
+    public ListMovie() throws SQLException, ClassNotFoundException {
+        super();
+        daoMovie = new DaoMovie();
+    }
 
-        public ListMovie() throws SQLException, ClassNotFoundException {
-            super();
-           daoMovie = new DaoMovie();
-        }
-
-        @Override
-        protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-            List<Movie> movieList = new ArrayList<Movie>();
-
-            try {
-                movieList.addAll(daoMovie.getAllMovie());
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Movie> movieList = new ArrayList<Movie>();
+        try {
+            movieList.addAll(daoMovie.getAllMovie());
                 /*System.out.println( movieList.addAll(daoMovie.getAllMovie()));*/
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            req.setAttribute("movieList", movieList);
-            req.getRequestDispatcher("pages/Movie/listMovie.jsp").forward(req,resp);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        req.setAttribute("movieList", movieList);
+        req.getRequestDispatcher("pages/Movie/listMovie.jsp").forward(req, resp);
+    }
 }

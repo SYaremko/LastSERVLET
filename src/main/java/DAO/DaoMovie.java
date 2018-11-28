@@ -19,20 +19,19 @@ public class DaoMovie implements IDaoMovie {
     public DaoMovie() throws SQLException, ClassNotFoundException {
         connection = new DBConnection().getConnection();
     }
+
     @Override
     public void createMovie(Movie movie) throws SQLException {
         String sql = "Insert into movie ( moviename, type, description, image, url) values (?,?,?,?,?)";
         PreparedStatement pr = connection.prepareStatement(sql);
-
-        pr.setString(1,movie.getMoviename());
-        pr.setString(2,String.valueOf(movie.getType()));
-        pr.setString(3,movie.getDescription());
-        pr.setString(4,movie.getImage());
-        pr.setString(5,movie.getUrl());
+        pr.setString(1, movie.getMoviename());
+        pr.setString(2, String.valueOf(movie.getType()));
+        pr.setString(3, movie.getDescription());
+        pr.setString(4, movie.getImage());
+        pr.setString(5, movie.getUrl());
         pr.executeUpdate();
-
-
     }
+
     @Override
     public List<Movie> getAllMovie() throws SQLException {
         List<Movie> list = new ArrayList<Movie>();
@@ -46,11 +45,11 @@ public class DaoMovie implements IDaoMovie {
             movie.setDescription(resultSet.getString("description"));
             movie.setImage(resultSet.getString("image"));
             movie.setUrl(resultSet.getString("url"));
-
             list.add(movie);
         }
         return list;
-}
+    }
+
     @Override
     public void deleteMovie(int id) throws SQLException {
         String sql = "delete from movie where id =?";
@@ -59,6 +58,7 @@ public class DaoMovie implements IDaoMovie {
         pr.executeUpdate();
         System.out.println("dao all ok");
     }
+
     @Override
     public List<Movie> navigation(Type type) throws SQLException {
         List<Movie> list = new ArrayList<Movie>();
@@ -73,12 +73,12 @@ public class DaoMovie implements IDaoMovie {
             movie.setDescription(resultSet.getString("description"));
             movie.setImage(resultSet.getString("image"));
             movie.setUrl(resultSet.getString("url"));
-
             list.add(movie);
             System.out.println("dao good");
         }
         return list;
     }
+
     @Override
     public Movie getMovieById(int movieID) throws SQLException {
         String sql = "Select * from movie where id = ?";
@@ -90,13 +90,13 @@ public class DaoMovie implements IDaoMovie {
             movie.setId(resultSet.getInt("id"));
             movie.setMoviename(resultSet.getString("moviename"));
             movie.setDescription(resultSet.getString("description"));
-
             movie.setImage(resultSet.getString("image"));
             movie.setUrl(resultSet.getString("url"));
             return movie;
         }
         return null;
     }
+
     @Override
     public void updateMovie(Movie movie) throws SQLException {
         Movie movieEdit = getMovieById(movie.getId());
@@ -104,14 +104,9 @@ public class DaoMovie implements IDaoMovie {
         movieEdit.setType(movie.getType());
         movieEdit.setDescription(movie.getDescription());
         movieEdit.setImage(movie.getImage());
-       /* System.out.println(movie.getImage() +"  ddddd");*/
         movieEdit.setUrl(movie.getUrl());
         deleteMovie(movie.getId());
         createMovie(movieEdit);
         System.out.println("rrrrr");
-
-
-
-
     }
 }

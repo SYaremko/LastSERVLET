@@ -32,6 +32,6 @@ public class ListPerson extends HttpServlet {
             e.printStackTrace();
         }
         req.setAttribute("persons", personList);
-        req.getRequestDispatcher("pages/Person/listPerson.jsp").forward(req,resp);
+        req.getRequestDispatcher("pages/Person/listPerson.jsp").forward(req, resp);
     }
 }

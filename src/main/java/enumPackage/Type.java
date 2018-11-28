@@ -1,6 +1,6 @@
 package enumPackage;
 
-public enum  Type {
+public enum Type {
     MOVIE, CARTOON;
 
 }

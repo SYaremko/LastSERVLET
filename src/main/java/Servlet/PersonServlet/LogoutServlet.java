@@ -9,14 +9,12 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/LogoutServlet")
-public class LogoutServlet extends HttpServlet{
+public class LogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         HttpSession session = request.getSession(false);
-
-        if(session != null){
+        if (session != null) {
             session.invalidate();
         }
-        request.getRequestDispatcher("index.jsp").forward(request,response);
-}}
+        request.getRequestDispatcher("index.jsp").forward(request, response);
+    }
+}

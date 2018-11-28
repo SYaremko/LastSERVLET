@@ -1,6 +1,6 @@
 package enumPackage;
 
 
-public enum  Sex {
+public enum Sex {
     MALE, FEMALE;
 }

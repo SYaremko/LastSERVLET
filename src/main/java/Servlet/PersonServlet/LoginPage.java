@@ -8,10 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/loginPage")
-public class LoginPage extends HttpServlet{
+public class LoginPage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        req.getRequestDispatcher("pages/Person/loginPage.jsp").forward(req,resp);
+        req.getRequestDispatcher("pages/Person/loginPage.jsp").forward(req, resp);
     }
 }

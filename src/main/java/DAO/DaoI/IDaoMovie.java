@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IDaoMovie {
+
     void createMovie(Movie movie) throws SQLException;
 
     List<Movie> getAllMovie() throws SQLException;

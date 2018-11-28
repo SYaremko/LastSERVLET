@@ -16,34 +16,37 @@ import java.nio.file.Paths;
 
 @WebServlet("/edit")
 /*@MultipartConfig*/
-public class EditMovie extends HttpServlet{
+public class EditMovie extends HttpServlet {
 
-        private DaoMovie daoMovie;
-        public EditMovie() throws Exception {
-            super();
-            daoMovie = new DaoMovie();
-        }
-        protected void doGet(HttpServletRequest request, HttpServletResponse response)
-                throws ServletException, IOException {
-            String moId = request.getParameter("MovieId");
-            Movie movie = null;
-            try {
-                if (moId == null || moId.isEmpty()) {
-                    movie = new Movie();
-                    movie.setId(-1);
-                } else {
-                    movie = daoMovie.getMovieById(Integer.parseInt(moId));
-                }
-            } catch (Exception e) {
-            }
-            if (movie == null) {
-                request.getRequestDispatcher("WEB-INF/view/404.jsp").forward(request, response);
+    private DaoMovie daoMovie;
+
+    public EditMovie() throws Exception {
+        super();
+        daoMovie = new DaoMovie();
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String moId = request.getParameter("MovieId");
+        Movie movie = null;
+        try {
+            if (moId == null || moId.isEmpty()) {
+                movie = new Movie();
+                movie.setId(-1);
             } else {
-                request.setAttribute("movie", movie);
-                request.getRequestDispatcher("pages/Movie/Editmovie.jsp").forward(request, response);
+                movie = daoMovie.getMovieById(Integer.parseInt(moId));
             }
-            System.out.println("fffff");
+        } catch (Exception e) {
         }
+        if (movie == null) {
+            request.getRequestDispatcher("WEB-INF/view/404.jsp").forward(request, response);
+        } else {
+            request.setAttribute("movie", movie);
+            request.getRequestDispatcher("pages/Movie/Editmovie.jsp").forward(request, response);
+        }
+        System.out.println("fffff");
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Movie movie = new Movie();
@@ -65,9 +68,8 @@ public class EditMovie extends HttpServlet{
 
         movie.setImage(fileName);
         System.out.println(fileName);*/
-movie.setImage(request.getParameter("image"));
+        movie.setImage(request.getParameter("image"));
         movie.setUrl(request.getParameter("url"));
-
         try {
             if (movie.getId() == -1) {
                 daoMovie.createMovie(movie);

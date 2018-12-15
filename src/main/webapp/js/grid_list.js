@@ -38,7 +38,6 @@ $(document).ready(function(){
 
     $('#btn_yes').on('click', function(e) {
         e.preventDefault();
-
         $.ajax({
             type: 'POST',
             data: { reqValue : removeId.id},
@@ -47,7 +46,6 @@ $(document).ready(function(){
             success: function () {
                 $('#'+removeId.id).remove();
                 $('#siteModal').fadeOut(100);
-
             },
             error: function () {
                 alert("No")
@@ -63,7 +61,6 @@ $(document).ready(function(){
    if ($('.particles__wrap').length) {
        particlesJS.load('particles', 'js/particlesjs-config.json');
    }
-
 
 });
 
